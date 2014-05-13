@@ -2,12 +2,12 @@
 <html>
   <head>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <title>{{bucket_name}}/{{key}}</title>
+    <title>{{bucket_name}}/{{path}}</title>
   </head>
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>{{bucket_name}}</h1>
+        <h1>{{bucket_name}}/{{path}}</h1>
       </div>
 
       <table class="table table-striped">
@@ -17,7 +17,7 @@
         <tbody>
           {{#items}}
             <tr><td>
-              <a href="{{url}}">{{name}}</a>
+              <a href="{{path}}">{{name}}</a>
             </td></tr>
           {{/items}}
         </tbody>

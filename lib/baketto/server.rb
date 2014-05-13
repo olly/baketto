@@ -7,14 +7,20 @@ class Baketto::Server
   end
 
   def call(env)
-    path = env['PATH_INFO']
+    path = Rack::Utils.unescape(env['PATH_INFO'])
 
-    context = OpenStruct.new
-    context.bucket_name = config.pretty_bucket_name
-    context.items = fs.files
-    body = Mustache.render(directory_template, context)
+    node = fs[path]
+
+    if node.directory?
+      context = OpenStruct.new
+      context.bucket_name = config.pretty_bucket_name
+      context.items = node.items
+      body = Mustache.render(directory_template, context)
     
-    [200, {'Content-Type' => 'text/html'}, [body]]
+      [200, {'Content-Type' => 'text/html'}, [body]]
+    else
+      [302, {'Location' => node.url}, []]
+    end
   end
 
   private

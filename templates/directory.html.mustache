@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{bucket_name}}/{{key}}</title>
+  </head>
+  <body>
+    <h1>{{bucket_name}}</h1>
+
+    <table>
+      <thead>
+        <tr><td>Name</td></tr>
+      </thead>
+      <tbody>
+        {{#items}}
+          <tr><td>
+            <a href="{{url}}">{{name}}</a>
+          </td></tr>
+        {{/items}}
+      </tbody>
+    </table>
+  </body>
+</html>

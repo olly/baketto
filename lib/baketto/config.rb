@@ -15,6 +15,10 @@ class Baketto::Config
     env['BUCKET_NAME']
   end
 
+  def pretty_bucket_name
+    env['PRETTY_BUCKET_NAME'] || bucket_name
+  end
+
   private
   attr_reader :env
 end

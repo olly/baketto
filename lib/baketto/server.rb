@@ -10,7 +10,7 @@ class Baketto::Server
     path = env['PATH_INFO']
 
     context = OpenStruct.new
-    context.bucket_name = config.bucket_name
+    context.bucket_name = config.pretty_bucket_name
     context.items = fs.files
     body = Mustache.render(directory_template, context)
     

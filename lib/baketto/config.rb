@@ -19,6 +19,18 @@ class Baketto::Config
     env['PRETTY_BUCKET_NAME'] || bucket_name
   end
 
+  def secret_key
+    @secret_key ||= env['SECRET_KEY'] || SecureRandom.hex
+  end
+
+  def username
+    env['AUTH_USER']
+  end
+
+  def password
+    env['AUTH_PASSWORD']
+  end
+
   private
   attr_reader :env
 end

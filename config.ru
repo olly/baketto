@@ -4,4 +4,7 @@ Bundler.require
 require_relative './lib/baketto'
 
 config = Baketto::Config.new(ENV)
-run Baketto::Server.new(config)
+app = Baketto::Server.new(config)
+app = Baketto::Authentication.new(app, config)
+
+run app

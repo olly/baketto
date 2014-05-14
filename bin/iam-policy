@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'securerandom'
+
+bucket = ARGV[0]
+raise 'no bucket specified' unless bucket
+
+policy = {
+  'Version' => '2012-10-17',
+  'Statement' => [
+    {
+      'Sid' => SecureRandom.hex,
+      'Effect' => 'Allow',
+      'Action' => ['s3:ListBucket'],
+      'Resource' => ["arn:aws:s3:::#{bucket}"]
+    },
+    {
+      'Sid' => SecureRandom.hex,
+      'Effect' => 'Allow',
+      'Action' => ['s3:GetObject'],
+      'Resource' => ["arn:aws:s3:::#{bucket}/*"]
+    },
+  ]
+}
+
+$stdout.puts JSON.pretty_generate(policy)

@@ -15,6 +15,7 @@ class Baketto::Server
       context = OpenStruct.new
       context.bucket_name = config.pretty_bucket_name
       context.items = node.items
+      context.path = node.path
       body = Mustache.render(directory_template, context)
     
       [200, {'Content-Type' => 'text/html'}, [body]]

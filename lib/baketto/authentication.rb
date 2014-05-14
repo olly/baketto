@@ -12,7 +12,7 @@ class Baketto::Authentication
   attr_reader :app, :config
 
   def auth
-    @auth ||= Rack::Auth::Digest::MD5.new(app, realm: config.pretty_bucket_name, opaque: config.secret_key) do |username|
+    @auth ||= Rack::Auth::Digest::MD5.new(app, realm: config.host, opaque: config.secret_key) do |username|
       {config.username => config.password}[username]
     end
   end

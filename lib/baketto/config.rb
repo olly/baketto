@@ -15,8 +15,8 @@ class Baketto::Config
     env['BUCKET_NAME']
   end
 
-  def pretty_bucket_name
-    env['PRETTY_BUCKET_NAME'] || bucket_name
+  def host
+    env['HOST'] || bucket_name
   end
 
   def secret_key

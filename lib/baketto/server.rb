@@ -13,7 +13,7 @@ class Baketto::Server
 
     if node.directory?
       context = OpenStruct.new
-      context.bucket_name = config.pretty_bucket_name
+      context.host = config.host
       context.items = node.items
       context.path = node.path
       body = Mustache.render(directory_template, context)

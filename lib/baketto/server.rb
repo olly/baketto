@@ -11,7 +11,7 @@ class Baketto::Server
 
     node = fs[path]
 
-    if node.directory?
+    if node && node.directory?
       context = OpenStruct.new
       context.host = config.host
       context.items = node.items
@@ -19,9 +19,15 @@ class Baketto::Server
       body = Mustache.render(directory_template, context)
     
       [200, {'Content-Type' => 'text/html'}, [body]]
-    else
+    elsif node
       [302, {'Location' => node.url}, []]
+    else
+      body = templates_path.join('404.html').read
+      [404, {'Content-Type' => 'text/html'}, [body]]
     end
+  rescue
+    body = templates_path.join('500.html').read
+    [500, {'Content-Type' => 'text/html'}, [body]]
   end
 
   private

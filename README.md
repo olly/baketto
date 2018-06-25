@@ -28,6 +28,7 @@ Configure your application. It's recommended to use credentials restricted using
       AUTH_PASSWORD=<YOUR_AUTH_PASSWORD> \
       AWS_ACCESS_KEY_ID=<YOUR_AWS_ACCESS_KEY_ID> \
       AWS_SECRET_ACCESS_KEY=<YOUR_AWS_SECRET_ACCESS_KEY> \
+      AWS_REGION=<YOUR_BUCKETS_REGION> \
       BUCKET_NAME=<YOUR_BUCKET_NAME>
 
 ## Config
@@ -36,6 +37,7 @@ Configure your application. It's recommended to use credentials restricted using
 * `AUTH_PASSWORD` _(required)_ – the password for digest authentication
 * `AWS_ACCESS_KEY_ID` _(required)_ – the AWS Access Key ID to access the specified bucket
 * `AWS_SECRET_ACCESS_KEY` _(required)_ – the AWS Secret Access Key to access the specified bucket
+* `AWS_REGION` _(required)_ - the region where the bucket is located
 * `BUCKET_NAME` _(required)_ – the name of the bucket to browse
 * `HOST` _(optional)_ – used for presentational purposes and as the realm for digest authentication. Uses `BUCKET_NAME` if not specified
 * `SECRET_KEY` _(optional)_ – used for digest authentication. If not specified it will use a random key, but this will prevent your browser from remembering credentials each time the server restarts

@@ -1,6 +1,9 @@
 class S3::FS
-  def initialize(bucket_name, access_key_id:, secret_access_key:)
-    @bucket_name, @access_key_id, @secret_access_key = bucket_name, access_key_id, secret_access_key
+  def initialize(bucket_name, region:, access_key_id:, secret_access_key:)
+    @bucket_name = bucket_name
+    @region = region
+    @access_key_id = access_key_id
+    @secret_access_key = secret_access_key
   end
 
   def [](key)
@@ -11,10 +14,10 @@ class S3::FS
   end
 
   private
-  attr_reader :access_key_id, :bucket_name, :secret_access_key
+  attr_reader :access_key_id, :bucket_name, :region, :secret_access_key
 
   def connection
-    @connection ||= Fog::Storage.new(provider: 'AWS', aws_access_key_id: access_key_id, aws_secret_access_key: secret_access_key)
+    @connection ||= Fog::Storage.new(provider: 'AWS', region: region, aws_access_key_id: access_key_id, aws_secret_access_key: secret_access_key)
   end
 
   def bucket

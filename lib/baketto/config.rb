@@ -11,6 +11,10 @@ class Baketto::Config
     env['AWS_SECRET_ACCESS_KEY']
   end
 
+  def aws_region
+    env['AWS_REGION']
+  end
+
   def bucket_name
     env['BUCKET_NAME']
   end

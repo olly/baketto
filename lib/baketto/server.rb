@@ -1,9 +1,10 @@
+require 'ostruct'
 require_relative '../s3'
 
 class Baketto::Server
   def initialize(config)
     @config = config
-    @fs = S3::FS.new(config.bucket_name, access_key_id: config.aws_access_key_id, secret_access_key: config.aws_secret_access_key)
+    @fs = S3::FS.new(config.bucket_name, region: config.aws_region, access_key_id: config.aws_access_key_id, secret_access_key: config.aws_secret_access_key)
   end
 
   def call(env)
@@ -17,7 +18,7 @@ class Baketto::Server
       context.items = node.items
       context.path = node.path
       body = Mustache.render(directory_template, context)
-    
+
       [200, {'Content-Type' => 'text/html'}, [body]]
     elsif node
       [302, {'Location' => node.url}, []]

@@ -1,16 +1,16 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    builder (3.2.3)
-    excon (0.71.0)
-    fog-aws (3.5.2)
+    builder (3.2.4)
+    excon (0.78.1)
+    fog-aws (3.8.0)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
       fog-xml (~> 0.1)
       ipaddress (~> 0.8)
-    fog-core (2.1.2)
+    fog-core (2.2.3)
       builder
-      excon (~> 0.58)
+      excon (~> 0.71)
       formatador (~> 0.2)
       mime-types
     fog-json (1.2.0)
@@ -24,15 +24,17 @@ GEM
     ipaddress (0.8.3)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.1009)
-    mini_portile2 (2.4.0)
-    multi_json (1.14.1)
+    mime-types-data (3.2020.1104)
+    mini_portile2 (2.5.0)
+    multi_json (1.15.0)
     mustache (1.1.1)
     nio4r (2.5.2)
-    nokogiri (1.10.8)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     puma (4.3.5)
       nio4r (~> 2.0)
+    racc (1.5.2)
     rack (2.2.3)
 
 PLATFORMS
